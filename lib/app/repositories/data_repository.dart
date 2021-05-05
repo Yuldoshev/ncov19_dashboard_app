@@ -17,7 +17,6 @@ class DataRepository {
         onGetData: () => apiService.getEndpointData(
             accessToken: _accessToken, endpoint: endpoint),
       );
-
   EndpointsData getAllEndpointsCacheData() => dataCacheService.getData();
 
   Future<EndpointsData> getAllEndpointsData() async {
