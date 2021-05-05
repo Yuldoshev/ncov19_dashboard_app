@@ -12,7 +12,6 @@ class DataRepository {
   final DataCacheService dataCacheService;
 
   String _accessToken;
-
   Future<EndpointData> getEndpointData(Endpoint endpoint) async =>
       await _getDataRefreshingToken<EndpointData>(
         onGetData: () => apiService.getEndpointData(
@@ -31,6 +30,7 @@ class DataRepository {
 
   Future<T> _getDataRefreshingToken<T>({Future<T> Function() onGetData}) async {
     try {
+
       if (_accessToken == null) {
         _accessToken = await apiService.getAccessToken();
       }
